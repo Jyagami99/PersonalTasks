@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PersonalTasks</string>
+    <string name="title">Título</string>
+    <string name="description">Descrição</string>
+    <string name="deadline">Data Limite</string>
+    <string name="save">Salvar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="task_title">Título da Tarefa</string>
 </resources>
