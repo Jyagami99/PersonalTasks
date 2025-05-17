@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -9,38 +11,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <include
+            android:id="@+id/toolbar_in"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <EditText
             android:id="@+id/inputTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/title" />
+            android:autofillHints=""
+            android:hint="@string/title"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <EditText
             android:id="@+id/inputDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/description"
-            android:minLines="3"
+            android:autofillHints=""
             android:gravity="top"
-            android:inputType="textMultiLine" />
+            android:hint="@string/description"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <EditText
             android:id="@+id/inputDeadline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:focusable="false"
             android:hint="@string/deadline"
-            android:focusable="false" />
+            android:inputType="datetime"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/save" />
+            android:text="@string/save"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 </ScrollView>
