@@ -72,7 +72,7 @@ com.example.personaltasks/
 
 ## 📹 Vídeo de Demonstração
 
-[🔗 Link para o vídeo de execução (máx. 1 minuto)](https://drive.google.com/...) *(adicione o link após gravar)*
+[🔗 Link para o vídeo de execução (máx. 1 minuto)](https://youtu.be/_MMcB-bFeRQ)
 
 ---
 
@@ -84,7 +84,7 @@ com.example.personaltasks/
 - [x] Tela de lista com menus (options/context)
 - [x] Tela de formulário com `DatePicker`
 - [x] README com instruções
-- [ ] Vídeo de até 1 minuto
+- [x] Vídeo de até 1 minuto
 - [x] Commits com padrão convencional
 - [x] Arquitetura MVC
 
