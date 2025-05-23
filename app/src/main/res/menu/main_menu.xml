@@ -5,5 +5,5 @@
         android:id="@+id/menu_new_task"
         android:title="@string/new_task"
         android:icon="@android:drawable/ic_input_add"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 </menu>
