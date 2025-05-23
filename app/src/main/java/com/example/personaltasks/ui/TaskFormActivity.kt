@@ -47,6 +47,9 @@ class TaskFormActivity : AppCompatActivity() {
                     inputDeadline.isEnabled = false
                     btnSave.text = "OK"
                     btnSave.visibility = View.GONE
+
+                    currentFocus?.clearFocus()
+                    window.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
                 }
             }
         }
