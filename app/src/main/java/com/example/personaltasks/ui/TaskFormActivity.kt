@@ -1,5 +1,6 @@
 package com.example.personaltasks.ui
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -9,11 +10,14 @@ import com.example.personaltasks.databinding.ActivityTaskFormBinding
 import com.example.personaltasks.model.Constant.EXTRA_TASK
 import com.example.personaltasks.model.Constant.EXTRA_VIEW_TASK
 import com.example.personaltasks.model.Task
+import java.util.Calendar
 
 class TaskFormActivity : AppCompatActivity() {
     private val binding: ActivityTaskFormBinding by lazy {
         ActivityTaskFormBinding.inflate(layoutInflater)
     }
+
+    private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +50,18 @@ class TaskFormActivity : AppCompatActivity() {
                 }
             }
         }
+
+        binding.inputDeadline.setOnClickListener {
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val formattedDate = "%04d-%02d-%02d".format(selectedYear, selectedMonth + 1, selectedDay)
+                binding.inputDeadline.setText(formattedDate)
+            }, year, month, day).show()
+        }
+
 
         with(binding) {
             btnSave.setOnClickListener {

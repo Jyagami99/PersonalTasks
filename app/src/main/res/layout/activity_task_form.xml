@@ -50,11 +50,10 @@
             android:autofillHints=""
             android:focusable="false"
             android:hint="@string/deadline"
-            android:inputType="datetime"
+            android:inputType="date"
             android:minHeight="48dp"
             android:textColorHint="#546E7A"
             tools:ignore="VisualLintTextFieldSize" />
-
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
