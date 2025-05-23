@@ -72,7 +72,7 @@ com.example.personaltasks/
 
 ## 📹 Vídeo de Demonstração
 
-[🔗 Link para o vídeo de execução (máx. 1 minuto)](https://youtu.be/_MMcB-bFeRQ)
+[🔗 Link para o vídeo de execução (máx. 1 minuto)](https://youtu.be/_jpG012vv6A)
 
 ---
 
