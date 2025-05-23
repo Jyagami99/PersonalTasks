@@ -79,6 +79,10 @@ class TaskFormActivity : AppCompatActivity() {
                 }
                 finish()
             }
+            btnCancel.setOnClickListener {
+                setResult(RESULT_CANCELED)
+                finish()
+            }
         }
     }
 }
