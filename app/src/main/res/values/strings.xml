@@ -10,4 +10,6 @@
     <string name="edit_task">Editar tarefa</string>
     <string name="new_task">Nova Tarefa</string>
     <string name="details">Detalhes</string>
+    <string name="task_removed">Tarefa removida</string>
+    <string name="task_list">Lista de Tarefas</string>
 </resources>
