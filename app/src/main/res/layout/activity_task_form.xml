@@ -54,6 +54,17 @@
             android:minHeight="48dp"
             android:textColorHint="#546E7A"
             tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/inputStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:hint="@string/task_status"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColorHint="#546E7A"
+            tools:ignore="VisualLintTextFieldSize" />
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"

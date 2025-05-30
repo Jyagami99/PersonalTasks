@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.CheckedTextView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.personaltasks.R
@@ -24,7 +25,7 @@ class TaskAdapter(context: Context, private val tasks: MutableList<Task>) :
                 parent,
                 false
             ).apply {
-                val itemTaskViewHolder = ItemTaskViewHolder(taskTitle, taskDeadline)
+                val itemTaskViewHolder = ItemTaskViewHolder(taskTitle, taskDeadline, taskStatus)
                 view = root
                 (view as LinearLayout).tag = itemTaskViewHolder
             }
@@ -33,8 +34,9 @@ class TaskAdapter(context: Context, private val tasks: MutableList<Task>) :
         val viewHolder = view?.tag as ItemTaskViewHolder
         viewHolder.taskTitle.text = task.title
         viewHolder.taskDeadline.text = task.deadline
+        viewHolder.taskStatus.text = task.status
         return view as View
     }
 
-    private data class ItemTaskViewHolder(val taskTitle: TextView, val taskDeadline: TextView)
+    private data class ItemTaskViewHolder(val taskTitle: TextView, val taskDeadline: TextView, val taskStatus: TextView)
 }

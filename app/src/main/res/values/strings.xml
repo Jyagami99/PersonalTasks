@@ -12,4 +12,5 @@
     <string name="details">Detalhes</string>
     <string name="task_removed">Tarefa removida</string>
     <string name="task_list">Lista de Tarefas</string>
+    <string name="task_status">Status da Tarefa</string>
 </resources>

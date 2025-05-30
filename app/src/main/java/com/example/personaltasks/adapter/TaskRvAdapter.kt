@@ -16,6 +16,7 @@ class TaskRvAdapter(
         RecyclerView.ViewHolder(itemTaskBinding.root) {
         val tvTitle = itemTaskBinding.taskTitle
         val tvDeadline = itemTaskBinding.taskDeadline
+        val tvStatus = itemTaskBinding.taskStatus
 
         init {
             itemTaskBinding.root.setOnCreateContextMenuListener { menu, v, menuInfo ->
@@ -52,6 +53,7 @@ class TaskRvAdapter(
             with(holder) {
                 tvTitle.text = task.title
                 tvDeadline.text = task.deadline
+                tvStatus.text = task.status
             }
         }
     }

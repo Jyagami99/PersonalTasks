@@ -115,7 +115,6 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener {
         Thread {
             taskList.addAll(taskController.retrieveTasks())
             taskAdapter.notifyDataSetChanged()
-
         }.start()
     }
 

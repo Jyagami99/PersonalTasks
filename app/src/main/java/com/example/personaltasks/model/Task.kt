@@ -12,5 +12,6 @@ data class Task (
     @PrimaryKey(autoGenerate = true) var id: Int? = INVALID_CONTACT_ID,
     var title: String = "",
     var description: String = "",
-    var deadline: String = ""
+    var deadline: String = "",
+    var status: String = ""
 ): Parcelable
