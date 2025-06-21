@@ -38,6 +38,7 @@ class TaskFormActivity : AppCompatActivity() {
                 inputTitle.setText(it.title)
                 inputDescription.setText(it.description)
                 inputDeadline.setText(it.deadline)
+                inputStatus.setText(it.status)
 
                 val viewTask = intent.getBooleanExtra(EXTRA_VIEW_TASK, false)
                 if (viewTask) {
@@ -45,6 +46,7 @@ class TaskFormActivity : AppCompatActivity() {
                     inputTitle.isEnabled = false
                     inputDescription.isEnabled = false
                     inputDeadline.isEnabled = false
+                    inputStatus.isEnabled = false
                     btnSave.text = "OK"
                     btnSave.visibility = View.GONE
 
@@ -65,14 +67,14 @@ class TaskFormActivity : AppCompatActivity() {
             }, year, month, day).show()
         }
 
-
         with(binding) {
             btnSave.setOnClickListener {
                 Task(
                     id = receiveTask?.id ?: hashCode(),
                     title = inputTitle.text.toString(),
                     description = inputDescription.text.toString(),
-                    deadline = inputDeadline.text.toString()
+                    deadline = inputDeadline.text.toString(),
+                    status = inputStatus.text.toString()
 
                 ).let { task ->
                     Intent().apply {

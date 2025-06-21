@@ -14,12 +14,14 @@ class TaskSqlite(context: Context) : TaskDao {
     private val TASK_TITLE = "title"
     private val TASK_DESCRIPTION = "description"
     private val TASK_DEADLINE = "deadline"
+    private val TASK_STATUS = "status"
 
     val CREATE_TASK_STATEMENT = "CREATE TABLE IF NOT EXISTS $TASK_TABLE (" +
             "$TASK_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
             "$TASK_TITLE TEXT NOT NULL, " +
             "$TASK_DESCRIPTION TEXT NOT NULL, " +
-            "$TASK_DEADLINE TEXT NOT NULL);"
+            "$TASK_DEADLINE TEXT NOT NULL, " +
+            "$TASK_STATUS TEXT NOT NULL);"
 
     private val db: SQLiteDatabase =
         context.openOrCreateDatabase(TASK_DB_FILE, Context.MODE_PRIVATE, null)
@@ -89,12 +91,14 @@ class TaskSqlite(context: Context) : TaskDao {
         put(TASK_TITLE, title)
         put(TASK_DESCRIPTION, description)
         put(TASK_DEADLINE, deadline)
+        put(TASK_STATUS, status)
     }
 
     private fun Cursor.toTask() = Task(
         getInt(getColumnIndexOrThrow(TASK_ID)),
         getString(getColumnIndexOrThrow(TASK_TITLE)),
         getString(getColumnIndexOrThrow(TASK_DESCRIPTION)),
-        getString(getColumnIndexOrThrow(TASK_DEADLINE))
+        getString(getColumnIndexOrThrow(TASK_DEADLINE)),
+        getString(getColumnIndexOrThrow(TASK_STATUS)),
     )
 }
