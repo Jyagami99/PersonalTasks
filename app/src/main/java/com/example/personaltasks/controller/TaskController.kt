@@ -1,46 +1,45 @@
 package com.example.personaltasks.controller
 
-import androidx.room.Room
+import android.util.Log
 import com.example.personaltasks.model.Task
-import com.example.personaltasks.model.TaskDao
-import com.example.personaltasks.model.TaskRoomDb
-import com.example.personaltasks.ui.MainActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.personaltasks.model.TaskFirebase
 
-class TaskController(mainActivity: MainActivity) {
-    private val taskDao: TaskDao = Room.databaseBuilder(
-        context = mainActivity,
-        klass = TaskRoomDb::class.java,
-        name = "task_db"
-
-    ).build().taskDao()
+class TaskController {
+    private val repository = TaskFirebase()
 
     fun insertTask(task: Task) {
-        CoroutineScope(Dispatchers.IO).launch {
-            taskDao.createTask(task)
+        repository.addTask(task) { success ->
+            if (!success) {
+                Log.e("TaskController", "Erro ao inserir tarefa no Firebase")
+            }
         }
     }
 
     fun updateTask(task: Task) {
-        CoroutineScope(Dispatchers.IO).launch {
-            taskDao.updateTask(task)
+        repository.updateTask(task) { success ->
+            if (!success) {
+                Log.e("TaskController", "Erro ao atualizar tarefa no Firebase")
+            }
         }
     }
 
     fun deleteTask(task: Task) {
-        CoroutineScope(Dispatchers.IO).launch {
-            taskDao.deleteTask(task)
+        repository.deleteTask(task) { success ->
+            if (!success) {
+                Log.e("TaskController", "Erro ao excluir tarefa no Firebase")
+            }
         }
     }
 
-    fun retrieveTask(id: Int): Task {
-        return taskDao.retrieveTask(id)
+    fun restoreTask(task: Task) {
+        repository.restoreTask(task) { success ->
+            if (!success) {
+                Log.e("TaskController", "Erro ao restaurar tarefa no Firebase")
+            }
+        }
     }
 
-    fun retrieveTasks(): MutableList<Task> {
-        return taskDao.retrieveTasks()
+    fun retrieveTasks(deleted: Boolean, onResult: (List<Task>) -> Unit) {
+        repository.getTasks(deleted, onResult)
     }
-
 }
