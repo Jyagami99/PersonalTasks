@@ -22,6 +22,8 @@
             android:name=".ui.MainActivity"
             android:exported="true" />
 
+        <activity android:name=".ui.DeletedTasksActivity" />
+
         <activity
             android:name=".ui.LoginActivity"
             android:exported="true">
