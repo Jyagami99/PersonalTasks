@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener {
     private lateinit var carl: ActivityResultLauncher<Intent>
 
     private val taskController: TaskController by lazy {
-        TaskController(this)
+        TaskController()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
