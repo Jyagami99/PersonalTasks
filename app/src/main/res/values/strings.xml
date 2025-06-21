@@ -12,4 +12,8 @@
     <string name="details">Detalhes</string>
     <string name="task_removed">Tarefa removida</string>
     <string name="task_list">Lista de Tarefas</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
+    <string name="enter">Entrar</string>
+    <string name="register">Registrar</string>
 </resources>

@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:layout_marginBottom="16dp"/>
 
@@ -21,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Senha"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:layout_marginBottom="24dp"/>
 
@@ -28,13 +30,13 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrar"
+        android:text="@string/enter"
         android:layout_marginBottom="12dp"/>
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar" />
+        android:text="@string/register" />
 
 </LinearLayout>
