@@ -26,11 +26,13 @@ class TaskFormActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarIn.toolbar)
         supportActionBar?.subtitle = "Nova Tarefa"
 
+        val action = intent.getStringExtra("action")
         val receiveTask = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.getParcelableExtra(EXTRA_TASK, Task::class.java)
         } else {
             intent.getParcelableExtra<Task>(EXTRA_TASK)
         }
+
 
         receiveTask?.let {
             supportActionBar?.subtitle = "Editando Tarefa"
@@ -40,15 +42,15 @@ class TaskFormActivity : AppCompatActivity() {
                 inputDeadline.setText(it.deadline)
                 inputStatus.setText(it.status)
 
-                val viewTask = intent.getBooleanExtra(EXTRA_VIEW_TASK, false)
-                if (viewTask) {
+                val isViewOnly = intent.getBooleanExtra(EXTRA_VIEW_TASK, false) || action == "DETAILS"
+                if (isViewOnly) {
                     supportActionBar?.subtitle = "Vizualizar Tarefa"
                     inputTitle.isEnabled = false
                     inputDescription.isEnabled = false
                     inputDeadline.isEnabled = false
                     inputStatus.isEnabled = false
-                    btnSave.text = "OK"
                     btnSave.visibility = View.GONE
+                    btnCancel.text = "Voltar"
 
                     currentFocus?.clearFocus()
                     window.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
