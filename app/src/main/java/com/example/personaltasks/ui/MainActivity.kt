@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener {
     }
 
     private lateinit var carl: ActivityResultLauncher<Intent>
+    private lateinit var deletedLauncher: ActivityResultLauncher<Intent>
 
     private val taskController: TaskController by lazy {
         TaskController()
@@ -64,6 +65,13 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener {
                     }
                 }
             }
+
+        deletedLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                fillTaskList()
+            }
+        }
+
         amb.recyclerView.adapter = taskAdapter
         amb.recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -78,14 +86,22 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_new_task -> {
-                carl.launch(Intent(this, TaskFormActivity::class.java))
+                openForm(null, "NEW")
                 true
             }
-
-            else -> {
-                false
+            R.id.menu_deleted_tasks -> {
+                deletedLauncher.launch(Intent(this, DeletedTasksActivity::class.java))
+                true
             }
+            else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun openForm(task: Task?, action: String) {
+        val intent = Intent(this, TaskFormActivity::class.java)
+        intent.putExtra(EXTRA_TASK, task)
+        intent.putExtra("action", action)
+        carl.launch(intent)
     }
 
     override fun onTaskClick(position: Int) {
@@ -111,11 +127,14 @@ class MainActivity : AppCompatActivity(), OnTaskClickListener {
     }
 
     private fun fillTaskList() {
-        taskList.clear()
-        Thread {
-            taskList.addAll(taskController.retrieveTasks())
-            taskAdapter.notifyDataSetChanged()
-        }.start()
+        taskController.retrieveTasks(deleted = false) { tasks ->
+            taskList.clear()
+            taskList.addAll(tasks)
+            runOnUiThread {
+                taskAdapter.notifyDataSetChanged()
+            }
+        }
     }
+
 
 }
