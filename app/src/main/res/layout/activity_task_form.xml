@@ -65,6 +65,12 @@
             android:minHeight="48dp"
             android:textColorHint="#546E7A"
             tools:ignore="VisualLintTextFieldSize" />
+        <Spinner
+            android:id="@+id/prioritySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/priority"
+            />
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"

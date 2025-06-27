@@ -41,6 +41,7 @@ class TaskFormActivity : AppCompatActivity() {
                 inputDescription.setText(it.description)
                 inputDeadline.setText(it.deadline)
                 inputStatus.setText(it.status)
+                //inputPriority.setText(it.priority)
 
                 val isViewOnly = intent.getBooleanExtra(EXTRA_VIEW_TASK, false) || action == "DETAILS"
                 if (isViewOnly) {
@@ -49,6 +50,8 @@ class TaskFormActivity : AppCompatActivity() {
                     inputDescription.isEnabled = false
                     inputDeadline.isEnabled = false
                     inputStatus.isEnabled = false
+                    prioritySpinner.isEnabled = false
+                    //inputPriority.isEnabled = false
                     btnSave.visibility = View.GONE
                     btnCancel.text = "Voltar"
 
@@ -76,7 +79,9 @@ class TaskFormActivity : AppCompatActivity() {
                     title = inputTitle.text.toString(),
                     description = inputDescription.text.toString(),
                     deadline = inputDeadline.text.toString(),
-                    status = inputStatus.text.toString()
+                    status = inputStatus.text.toString(),
+                    priority = prioritySpinner.toString()
+                    //priority = inputPriority.text.toString()
 
                 ).let { task ->
                     Intent().apply {
