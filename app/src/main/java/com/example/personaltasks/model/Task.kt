@@ -8,11 +8,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity
-data class Task (
+data class Task(
     @PrimaryKey(autoGenerate = true) var id: Int? = INVALID_CONTACT_ID,
     var title: String = "",
     var description: String = "",
     var deadline: String = "",
     var status: String = "",
-    var deleted: Boolean = false
+    var deleted: Boolean = false,
+    var priority: String
 ): Parcelable

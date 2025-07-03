@@ -19,4 +19,5 @@
     <string name="register">Registrar</string>
     <string name="deleted_tasks">Tarefas Excluídas</string>
     <string name="reactivate">Reativar</string>
+    <string name="priority">Prioridade</string>
 </resources>
