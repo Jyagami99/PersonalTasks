@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "975509151331",
+    "project_id": "personaltasks-95835",
+    "storage_bucket": "personaltasks-95835.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975509151331:android:41095affbd0ae5e4f3e256",
+        "android_client_info": {
+          "package_name": "com.example.personaltasks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLzpftFuyVy3jNCGNkEmSkJyZd6CX7Zu0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
